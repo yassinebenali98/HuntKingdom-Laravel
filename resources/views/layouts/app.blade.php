@@ -10,21 +10,18 @@
 		<meta name="keywords" content="admin dashboard, dashboard ui, backend, admin panel, admin template, dashboard template, admin, bootstrap, laravel, laravel admin panel, php admin panel, php admin dashboard, laravel admin template, laravel dashboard, laravel admin panel"/>
 
         <!-- FAVICON -->
-		
-        @vite(['assets/img/brand/favicon.ico'])
-
+		@vite(['assets/img/brand/favicon.ico'])
    
 		<!-- TITLE -->
 		<title> Dashplex - Laravel Bootstrap5 Premium Dashboard Template</title>
 
         <!-- BOOTSTRAP CSS -->
-	    @vite(['assets/plugins/bootstrap/css/bootstrap.min.css'])
+        @vite(['assets/plugins/bootstrap/css/bootstrap.min.css'])
 
         <!-- ICONS CSS -->
         @vite(['assets/web-fonts/icons.css'])
         @vite(['assets/web-fonts/font-awesome/font-awesome.min.css'])
         @vite(['assets/web-fonts/plugin.css'])
-       
        
         <!-- APP CSS & APP SCSS -->
         @vite(['resources/sass/app.scss' , 'resources/css/app.css'])
@@ -37,7 +34,8 @@
 
 		<!--- GLOBAL LOADER -->
 		<div id="global-loader" >
-			<img src="{{Vite::asset('assets/img/loader.svg')}}" class="loader-img" alt="loader">
+        <img src="{{Vite::asset('resources/assets/img/loader.svg')}}" class="loader-img" alt="loader">
+                  
 		</div>
 		<!--- END GLOBAL LOADER -->
 
@@ -53,36 +51,42 @@
             <!-- END MAIN-SIDEBAR -->
 
             <!-- MAIN-CONTENT -->
-            
+            <div class="main-content side-content pt-0">
+                <div class="main-container container-fluid">
+                    <div class="inner-body">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
             <!-- END MAIN-CONTENT -->
 
             <!-- MAIN-FOOTER -->
-           
+            @include('layouts.components.main-footer')
             <!-- END MAIN-FOOTER -->
 
 
             <!-- RIGHT-SIDEBAR -->
-            
+            @include('layouts.components.right-sidebar')
            <!-- END RIGHT-SIDEBAR -->
 
 
             <!-- COUNTRY SELECTOR MODAL  -->
-			
+			@include('layouts.components.modal')
             <!-- END COUNTRY SELECTOR MODAL  -->
+            @yield('modals')
 
 
 		</div>
         <!-- END PAGE-->
 
         <!-- SCRIPTS -->
-        
         @include('layouts.components.scripts')
+        
         <!-- STICKY JS-->
-       
         @vite(['assets/sticky.js'])
 
         <!-- APP JS -->
-		@vite(['js/app.js'])
+		@vite(['resources/js/app.js'])
 
 
         <!-- END SCRIPTS -->
